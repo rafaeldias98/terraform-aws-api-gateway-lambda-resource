@@ -15,35 +15,45 @@ variable "vpc_id" {
 
 variable "lambda_subnet_ids" {
   description = "Subnet ids to deploy the lambda to"
-  type = "list"
+  type        = list(string)
 }
 
-variable "api_gateway_id" {}
+variable "api_gateway_name" {
+  type   = string
 
-variable "api_gateway_stage_name" {}
+  default = ""
+}
 
-variable "api_gateway_root_resource_id" {}
+variable "api_gateway_description" {
+  type = string
+
+  default = ""
+}
+
+variable "api_gateway_stage_name" {
+  type = string
+}
 
 variable "resource_path_part" {}
 
 variable "lambda_zip_path" {}
 
 variable "lambda_ingress_cidr_blocks" {
-  type = "list"
+  type = list(string)
 }
 
 variable "lambda_egress_cidr_blocks" {
-  type = "list"
+  type = list(string)
 }
 
 variable "lambda_environment_variables" {
   description = "Environment variables to be provied to the lambda function."
-  type = "map"
+  type        = map(string)
 }
 
 variable "resource_http_method" {
   description = "HTTP method on the API gatway to integrate with lambda function"
-  default = "GET"
+  default     = "GET"
 }
 
 variable "lambda_function_name" {}
@@ -62,3 +72,6 @@ variable "lambda_memory_size" {
   default = 128
 }
 
+variable "lambda_tags" {
+  type = map(string)
+}

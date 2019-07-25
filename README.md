@@ -6,10 +6,9 @@ Terraform AWS API Gateway Lambda Resource
 A Terraform module for creating a new lambda resource on an existing API gateway in AWS.
 
 The API gateway requires:
-* An existing API gateway
 * A lambda function packaged as zip
 * existing VPC 
- 
+
 The API gateway resource consists of:
 - resource
 - deplyoment
@@ -60,8 +59,6 @@ module "api_gateway_lambda_resource" {
 | deployment_identifier|An identifier for this instantiation                                           |- | yes |
 | account_id|AWS account ID                                           |- | yes |
 | vpc_id|VPC to deploy lambda to                                           |- | yes |
-| api_gateway_id|api gateway id to create the resource for                                           |- | yes |
-| api_gateway_root_resource_id|root resource  of the api Gateway                                          |- | yes |
 | api_gateway_stage_name| API gateway deployment stage name to deploy after creation of the resource |- | yes |
 | resource_path_part| path to use for API gateway resource |- | yes |
 | lambda_subnet_ids| subnet ids for the lambda |- | yes |
